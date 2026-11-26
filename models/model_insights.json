@@ -1,0 +1,906 @@
+{
+  "selected_model": "random_forest",
+  "selection_rationale": "Random Forest achieved the highest ROC-AUC (0.7755) and strongest default recall (57.72%) and F1-score (0.5329), minimizing missed loan defaults.",
+  "dataset_summary": {
+    "total_records": 30000,
+    "test_split_size": 6000,
+    "default_rate_pct": 22.12
+  },
+  "model_metrics": {
+    "logistic_regression": {
+      "accuracy": 0.8083,
+      "precision": 0.6903,
+      "recall": 0.2419,
+      "f1_score": 0.3583,
+      "roc_auc": 0.7079
+    },
+    "random_forest": {
+      "accuracy": 0.7762,
+      "precision": 0.4948,
+      "recall": 0.5772,
+      "f1_score": 0.5329,
+      "roc_auc": 0.7755
+    },
+    "xgboost": {
+      "accuracy": 0.8162,
+      "precision": 0.6551,
+      "recall": 0.3564,
+      "f1_score": 0.4617,
+      "roc_auc": 0.7752
+    }
+  },
+  "feature_importances": [
+    {
+      "feature": "PAY_0",
+      "label": "Repayment Status (Sep)",
+      "group": "Repayment History",
+      "description": "Most recent month repayment status (-1 = pay duly, 0 = revolving, >=1 = months delayed).",
+      "importance": 0.213923
+    },
+    {
+      "feature": "PAY_2",
+      "label": "Repayment Status (Aug)",
+      "group": "Repayment History",
+      "description": "Repayment status 2 months ago.",
+      "importance": 0.081465
+    },
+    {
+      "feature": "LIMIT_BAL",
+      "label": "Credit Limit",
+      "group": "Demographics & Credit",
+      "description": "Amount of given credit in NT dollars (individual and family supplementary credit).",
+      "importance": 0.05215
+    },
+    {
+      "feature": "PAY_4",
+      "label": "Repayment Status (Jun)",
+      "group": "Repayment History",
+      "description": "Repayment status 4 months ago.",
+      "importance": 0.049324
+    },
+    {
+      "feature": "PAY_3",
+      "label": "Repayment Status (Jul)",
+      "group": "Repayment History",
+      "description": "Repayment status 3 months ago.",
+      "importance": 0.047619
+    },
+    {
+      "feature": "BILL_AMT1",
+      "label": "Bill Statement (Sep)",
+      "group": "Bill Statements",
+      "description": "Amount of bill statement in September.",
+      "importance": 0.045337
+    },
+    {
+      "feature": "PAY_AMT2",
+      "label": "Payment Amount (Aug)",
+      "group": "Previous Payments",
+      "description": "Amount paid in August.",
+      "importance": 0.044406
+    },
+    {
+      "feature": "PAY_AMT1",
+      "label": "Payment Amount (Sep)",
+      "group": "Previous Payments",
+      "description": "Amount paid in September.",
+      "importance": 0.043243
+    },
+    {
+      "feature": "PAY_AMT3",
+      "label": "Payment Amount (Jul)",
+      "group": "Previous Payments",
+      "description": "Amount paid in July.",
+      "importance": 0.038842
+    },
+    {
+      "feature": "BILL_AMT2",
+      "label": "Bill Statement (Aug)",
+      "group": "Bill Statements",
+      "description": "Amount of bill statement in August.",
+      "importance": 0.037608
+    },
+    {
+      "feature": "PAY_6",
+      "label": "Repayment Status (Apr)",
+      "group": "Repayment History",
+      "description": "Repayment status 6 months ago.",
+      "importance": 0.035527
+    },
+    {
+      "feature": "BILL_AMT3",
+      "label": "Bill Statement (Jul)",
+      "group": "Bill Statements",
+      "description": "Amount of bill statement in July.",
+      "importance": 0.034353
+    },
+    {
+      "feature": "PAY_AMT4",
+      "label": "Payment Amount (Jun)",
+      "group": "Previous Payments",
+      "description": "Amount paid in June.",
+      "importance": 0.033033
+    },
+    {
+      "feature": "BILL_AMT4",
+      "label": "Bill Statement (Jun)",
+      "group": "Bill Statements",
+      "description": "Amount of bill statement in June.",
+      "importance": 0.032846
+    },
+    {
+      "feature": "BILL_AMT5",
+      "label": "Bill Statement (May)",
+      "group": "Bill Statements",
+      "description": "Amount of bill statement in May.",
+      "importance": 0.032719
+    },
+    {
+      "feature": "PAY_AMT6",
+      "label": "Payment Amount (Apr)",
+      "group": "Previous Payments",
+      "description": "Amount paid in April.",
+      "importance": 0.03264
+    },
+    {
+      "feature": "BILL_AMT6",
+      "label": "Bill Statement (Apr)",
+      "group": "Bill Statements",
+      "description": "Amount of bill statement in April.",
+      "importance": 0.031218
+    },
+    {
+      "feature": "PAY_AMT5",
+      "label": "Payment Amount (May)",
+      "group": "Previous Payments",
+      "description": "Amount paid in May.",
+      "importance": 0.031177
+    },
+    {
+      "feature": "PAY_5",
+      "label": "Repayment Status (May)",
+      "group": "Repayment History",
+      "description": "Repayment status 5 months ago.",
+      "importance": 0.030569
+    },
+    {
+      "feature": "AGE",
+      "label": "Age (Years)",
+      "group": "Demographics & Credit",
+      "description": "Applicant age in years.",
+      "importance": 0.030043
+    },
+    {
+      "feature": "EDUCATION",
+      "label": "Education Level",
+      "group": "Demographics & Credit",
+      "description": "1 = Graduate School, 2 = University, 3 = High School, 4 = Others.",
+      "importance": 0.010569
+    },
+    {
+      "feature": "MARRIAGE",
+      "label": "Marital Status",
+      "group": "Demographics & Credit",
+      "description": "1 = Married, 2 = Single, 3 = Others.",
+      "importance": 0.005799
+    },
+    {
+      "feature": "SEX",
+      "label": "Gender",
+      "group": "Demographics & Credit",
+      "description": "1 = Male, 2 = Female.",
+      "importance": 0.005589
+    }
+  ],
+  "global_shap": [
+    {
+      "feature": "PAY_0",
+      "label": "Repayment Status (Sep)",
+      "group": "Repayment History",
+      "mean_abs_shap": 0.0818,
+      "mean_signed_shap": -0.028628
+    },
+    {
+      "feature": "PAY_2",
+      "label": "Repayment Status (Aug)",
+      "group": "Repayment History",
+      "mean_abs_shap": 0.032929,
+      "mean_signed_shap": -0.008243
+    },
+    {
+      "feature": "LIMIT_BAL",
+      "label": "Credit Limit",
+      "group": "Demographics & Credit",
+      "mean_abs_shap": 0.031439,
+      "mean_signed_shap": -0.004354
+    },
+    {
+      "feature": "PAY_3",
+      "label": "Repayment Status (Jul)",
+      "group": "Repayment History",
+      "mean_abs_shap": 0.02176,
+      "mean_signed_shap": -0.002334
+    },
+    {
+      "feature": "PAY_4",
+      "label": "Repayment Status (Jun)",
+      "group": "Repayment History",
+      "mean_abs_shap": 0.021582,
+      "mean_signed_shap": -0.00164
+    },
+    {
+      "feature": "PAY_AMT2",
+      "label": "Payment Amount (Aug)",
+      "group": "Previous Payments",
+      "mean_abs_shap": 0.018189,
+      "mean_signed_shap": -0.003373
+    },
+    {
+      "feature": "PAY_AMT3",
+      "label": "Payment Amount (Jul)",
+      "group": "Previous Payments",
+      "mean_abs_shap": 0.015806,
+      "mean_signed_shap": -0.004068
+    },
+    {
+      "feature": "PAY_AMT1",
+      "label": "Payment Amount (Sep)",
+      "group": "Previous Payments",
+      "mean_abs_shap": 0.015358,
+      "mean_signed_shap": -0.002759
+    },
+    {
+      "feature": "PAY_6",
+      "label": "Repayment Status (Apr)",
+      "group": "Repayment History",
+      "mean_abs_shap": 0.013963,
+      "mean_signed_shap": -0.002267
+    },
+    {
+      "feature": "PAY_5",
+      "label": "Repayment Status (May)",
+      "group": "Repayment History",
+      "mean_abs_shap": 0.012662,
+      "mean_signed_shap": -0.002469
+    },
+    {
+      "feature": "PAY_AMT6",
+      "label": "Payment Amount (Apr)",
+      "group": "Previous Payments",
+      "mean_abs_shap": 0.011324,
+      "mean_signed_shap": -0.003009
+    },
+    {
+      "feature": "PAY_AMT4",
+      "label": "Payment Amount (Jun)",
+      "group": "Previous Payments",
+      "mean_abs_shap": 0.011112,
+      "mean_signed_shap": -0.003005
+    },
+    {
+      "feature": "BILL_AMT1",
+      "label": "Bill Statement (Sep)",
+      "group": "Bill Statements",
+      "mean_abs_shap": 0.01099,
+      "mean_signed_shap": -0.005108
+    },
+    {
+      "feature": "PAY_AMT5",
+      "label": "Payment Amount (May)",
+      "group": "Previous Payments",
+      "mean_abs_shap": 0.009174,
+      "mean_signed_shap": -0.001085
+    },
+    {
+      "feature": "BILL_AMT2",
+      "label": "Bill Statement (Aug)",
+      "group": "Bill Statements",
+      "mean_abs_shap": 0.007015,
+      "mean_signed_shap": -0.004397
+    },
+    {
+      "feature": "BILL_AMT5",
+      "label": "Bill Statement (May)",
+      "group": "Bill Statements",
+      "mean_abs_shap": 0.005755,
+      "mean_signed_shap": -0.003903
+    },
+    {
+      "feature": "BILL_AMT4",
+      "label": "Bill Statement (Jun)",
+      "group": "Bill Statements",
+      "mean_abs_shap": 0.005291,
+      "mean_signed_shap": -0.003272
+    },
+    {
+      "feature": "BILL_AMT6",
+      "label": "Bill Statement (Apr)",
+      "group": "Bill Statements",
+      "mean_abs_shap": 0.005022,
+      "mean_signed_shap": -0.003691
+    },
+    {
+      "feature": "BILL_AMT3",
+      "label": "Bill Statement (Jul)",
+      "group": "Bill Statements",
+      "mean_abs_shap": 0.004983,
+      "mean_signed_shap": -0.003225
+    },
+    {
+      "feature": "AGE",
+      "label": "Age (Years)",
+      "group": "Demographics & Credit",
+      "mean_abs_shap": 0.004093,
+      "mean_signed_shap": -0.001888
+    },
+    {
+      "feature": "SEX",
+      "label": "Gender",
+      "group": "Demographics & Credit",
+      "mean_abs_shap": 0.002396,
+      "mean_signed_shap": -0.000412
+    },
+    {
+      "feature": "MARRIAGE",
+      "label": "Marital Status",
+      "group": "Demographics & Credit",
+      "mean_abs_shap": 0.002377,
+      "mean_signed_shap": -0.000376
+    },
+    {
+      "feature": "EDUCATION",
+      "label": "Education Level",
+      "group": "Demographics & Credit",
+      "mean_abs_shap": 0.002365,
+      "mean_signed_shap": -0.000638
+    }
+  ],
+  "roc_curves": {
+    "random_forest": [
+      {
+        "fpr": 0.0,
+        "tpr": 0.0
+      },
+      {
+        "fpr": 0.0227,
+        "tpr": 0.2359
+      },
+      {
+        "fpr": 0.0455,
+        "tpr": 0.3233
+      },
+      {
+        "fpr": 0.0682,
+        "tpr": 0.3783
+      },
+      {
+        "fpr": 0.0909,
+        "tpr": 0.4552
+      },
+      {
+        "fpr": 0.1136,
+        "tpr": 0.5094
+      },
+      {
+        "fpr": 0.1364,
+        "tpr": 0.5516
+      },
+      {
+        "fpr": 0.1591,
+        "tpr": 0.572
+      },
+      {
+        "fpr": 0.1818,
+        "tpr": 0.5968
+      },
+      {
+        "fpr": 0.2045,
+        "tpr": 0.6194
+      },
+      {
+        "fpr": 0.2273,
+        "tpr": 0.6488
+      },
+      {
+        "fpr": 0.25,
+        "tpr": 0.6616
+      },
+      {
+        "fpr": 0.2727,
+        "tpr": 0.6835
+      },
+      {
+        "fpr": 0.2955,
+        "tpr": 0.6993
+      },
+      {
+        "fpr": 0.3182,
+        "tpr": 0.7159
+      },
+      {
+        "fpr": 0.3409,
+        "tpr": 0.731
+      },
+      {
+        "fpr": 0.3636,
+        "tpr": 0.7468
+      },
+      {
+        "fpr": 0.3864,
+        "tpr": 0.7626
+      },
+      {
+        "fpr": 0.4091,
+        "tpr": 0.7815
+      },
+      {
+        "fpr": 0.4318,
+        "tpr": 0.7913
+      },
+      {
+        "fpr": 0.4545,
+        "tpr": 0.8071
+      },
+      {
+        "fpr": 0.4773,
+        "tpr": 0.8191
+      },
+      {
+        "fpr": 0.5,
+        "tpr": 0.8327
+      },
+      {
+        "fpr": 0.5227,
+        "tpr": 0.8448
+      },
+      {
+        "fpr": 0.5455,
+        "tpr": 0.8523
+      },
+      {
+        "fpr": 0.5682,
+        "tpr": 0.8621
+      },
+      {
+        "fpr": 0.5909,
+        "tpr": 0.8787
+      },
+      {
+        "fpr": 0.6136,
+        "tpr": 0.8922
+      },
+      {
+        "fpr": 0.6364,
+        "tpr": 0.8983
+      },
+      {
+        "fpr": 0.6591,
+        "tpr": 0.9096
+      },
+      {
+        "fpr": 0.6818,
+        "tpr": 0.9171
+      },
+      {
+        "fpr": 0.7045,
+        "tpr": 0.9292
+      },
+      {
+        "fpr": 0.7273,
+        "tpr": 0.9344
+      },
+      {
+        "fpr": 0.75,
+        "tpr": 0.948
+      },
+      {
+        "fpr": 0.7727,
+        "tpr": 0.9533
+      },
+      {
+        "fpr": 0.7955,
+        "tpr": 0.9646
+      },
+      {
+        "fpr": 0.8182,
+        "tpr": 0.9706
+      },
+      {
+        "fpr": 0.8409,
+        "tpr": 0.9736
+      },
+      {
+        "fpr": 0.8636,
+        "tpr": 0.9774
+      },
+      {
+        "fpr": 0.8864,
+        "tpr": 0.9842
+      },
+      {
+        "fpr": 0.9091,
+        "tpr": 0.9894
+      },
+      {
+        "fpr": 0.9318,
+        "tpr": 0.9894
+      },
+      {
+        "fpr": 0.9545,
+        "tpr": 0.9925
+      },
+      {
+        "fpr": 0.9773,
+        "tpr": 0.997
+      },
+      {
+        "fpr": 1.0,
+        "tpr": 1.0
+      }
+    ],
+    "xgboost": [
+      {
+        "fpr": 0.0,
+        "tpr": 0.0
+      },
+      {
+        "fpr": 0.0227,
+        "tpr": 0.2268
+      },
+      {
+        "fpr": 0.0455,
+        "tpr": 0.3248
+      },
+      {
+        "fpr": 0.0682,
+        "tpr": 0.4054
+      },
+      {
+        "fpr": 0.0909,
+        "tpr": 0.465
+      },
+      {
+        "fpr": 0.1136,
+        "tpr": 0.4996
+      },
+      {
+        "fpr": 0.1364,
+        "tpr": 0.5456
+      },
+      {
+        "fpr": 0.1591,
+        "tpr": 0.5833
+      },
+      {
+        "fpr": 0.1818,
+        "tpr": 0.6104
+      },
+      {
+        "fpr": 0.2045,
+        "tpr": 0.6277
+      },
+      {
+        "fpr": 0.2273,
+        "tpr": 0.6466
+      },
+      {
+        "fpr": 0.25,
+        "tpr": 0.6639
+      },
+      {
+        "fpr": 0.2727,
+        "tpr": 0.682
+      },
+      {
+        "fpr": 0.2955,
+        "tpr": 0.6993
+      },
+      {
+        "fpr": 0.3182,
+        "tpr": 0.7129
+      },
+      {
+        "fpr": 0.3409,
+        "tpr": 0.7257
+      },
+      {
+        "fpr": 0.3636,
+        "tpr": 0.7378
+      },
+      {
+        "fpr": 0.3864,
+        "tpr": 0.7543
+      },
+      {
+        "fpr": 0.4091,
+        "tpr": 0.7717
+      },
+      {
+        "fpr": 0.4318,
+        "tpr": 0.7928
+      },
+      {
+        "fpr": 0.4545,
+        "tpr": 0.8041
+      },
+      {
+        "fpr": 0.4773,
+        "tpr": 0.8146
+      },
+      {
+        "fpr": 0.5,
+        "tpr": 0.8335
+      },
+      {
+        "fpr": 0.5227,
+        "tpr": 0.8455
+      },
+      {
+        "fpr": 0.5455,
+        "tpr": 0.8576
+      },
+      {
+        "fpr": 0.5682,
+        "tpr": 0.8681
+      },
+      {
+        "fpr": 0.5909,
+        "tpr": 0.8832
+      },
+      {
+        "fpr": 0.6136,
+        "tpr": 0.8968
+      },
+      {
+        "fpr": 0.6364,
+        "tpr": 0.9043
+      },
+      {
+        "fpr": 0.6591,
+        "tpr": 0.9126
+      },
+      {
+        "fpr": 0.6818,
+        "tpr": 0.9231
+      },
+      {
+        "fpr": 0.7045,
+        "tpr": 0.9299
+      },
+      {
+        "fpr": 0.7273,
+        "tpr": 0.9367
+      },
+      {
+        "fpr": 0.75,
+        "tpr": 0.9435
+      },
+      {
+        "fpr": 0.7727,
+        "tpr": 0.9503
+      },
+      {
+        "fpr": 0.7955,
+        "tpr": 0.954
+      },
+      {
+        "fpr": 0.8182,
+        "tpr": 0.9616
+      },
+      {
+        "fpr": 0.8409,
+        "tpr": 0.9683
+      },
+      {
+        "fpr": 0.8636,
+        "tpr": 0.9729
+      },
+      {
+        "fpr": 0.8864,
+        "tpr": 0.9766
+      },
+      {
+        "fpr": 0.9091,
+        "tpr": 0.9834
+      },
+      {
+        "fpr": 0.9318,
+        "tpr": 0.9864
+      },
+      {
+        "fpr": 0.9545,
+        "tpr": 0.9947
+      },
+      {
+        "fpr": 0.9773,
+        "tpr": 0.997
+      },
+      {
+        "fpr": 1.0,
+        "tpr": 1.0
+      }
+    ],
+    "logistic_regression": [
+      {
+        "fpr": 0.0,
+        "tpr": 0.0
+      },
+      {
+        "fpr": 0.0227,
+        "tpr": 0.2012
+      },
+      {
+        "fpr": 0.0455,
+        "tpr": 0.3112
+      },
+      {
+        "fpr": 0.0682,
+        "tpr": 0.3911
+      },
+      {
+        "fpr": 0.0909,
+        "tpr": 0.4348
+      },
+      {
+        "fpr": 0.1136,
+        "tpr": 0.468
+      },
+      {
+        "fpr": 0.1364,
+        "tpr": 0.4928
+      },
+      {
+        "fpr": 0.1591,
+        "tpr": 0.5185
+      },
+      {
+        "fpr": 0.1818,
+        "tpr": 0.5418
+      },
+      {
+        "fpr": 0.2045,
+        "tpr": 0.5576
+      },
+      {
+        "fpr": 0.2273,
+        "tpr": 0.5757
+      },
+      {
+        "fpr": 0.25,
+        "tpr": 0.5863
+      },
+      {
+        "fpr": 0.2727,
+        "tpr": 0.6014
+      },
+      {
+        "fpr": 0.2955,
+        "tpr": 0.6157
+      },
+      {
+        "fpr": 0.3182,
+        "tpr": 0.6262
+      },
+      {
+        "fpr": 0.3409,
+        "tpr": 0.6466
+      },
+      {
+        "fpr": 0.3636,
+        "tpr": 0.6579
+      },
+      {
+        "fpr": 0.3864,
+        "tpr": 0.6654
+      },
+      {
+        "fpr": 0.4091,
+        "tpr": 0.6767
+      },
+      {
+        "fpr": 0.4318,
+        "tpr": 0.6895
+      },
+      {
+        "fpr": 0.4545,
+        "tpr": 0.7008
+      },
+      {
+        "fpr": 0.4773,
+        "tpr": 0.7114
+      },
+      {
+        "fpr": 0.5,
+        "tpr": 0.731
+      },
+      {
+        "fpr": 0.5227,
+        "tpr": 0.7415
+      },
+      {
+        "fpr": 0.5455,
+        "tpr": 0.7491
+      },
+      {
+        "fpr": 0.5682,
+        "tpr": 0.7596
+      },
+      {
+        "fpr": 0.5909,
+        "tpr": 0.7724
+      },
+      {
+        "fpr": 0.6136,
+        "tpr": 0.7875
+      },
+      {
+        "fpr": 0.6364,
+        "tpr": 0.8026
+      },
+      {
+        "fpr": 0.6591,
+        "tpr": 0.8154
+      },
+      {
+        "fpr": 0.6818,
+        "tpr": 0.8297
+      },
+      {
+        "fpr": 0.7045,
+        "tpr": 0.8448
+      },
+      {
+        "fpr": 0.7273,
+        "tpr": 0.8598
+      },
+      {
+        "fpr": 0.75,
+        "tpr": 0.8719
+      },
+      {
+        "fpr": 0.7727,
+        "tpr": 0.8794
+      },
+      {
+        "fpr": 0.7955,
+        "tpr": 0.8968
+      },
+      {
+        "fpr": 0.8182,
+        "tpr": 0.9103
+      },
+      {
+        "fpr": 0.8409,
+        "tpr": 0.9239
+      },
+      {
+        "fpr": 0.8636,
+        "tpr": 0.9322
+      },
+      {
+        "fpr": 0.8864,
+        "tpr": 0.9435
+      },
+      {
+        "fpr": 0.9091,
+        "tpr": 0.9563
+      },
+      {
+        "fpr": 0.9318,
+        "tpr": 0.9668
+      },
+      {
+        "fpr": 0.9545,
+        "tpr": 0.9812
+      },
+      {
+        "fpr": 0.9773,
+        "tpr": 0.994
+      },
+      {
+        "fpr": 1.0,
+        "tpr": 1.0
+      }
+    ]
+  }
+}

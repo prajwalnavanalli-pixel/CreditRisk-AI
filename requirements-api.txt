@@ -1,0 +1,12 @@
+numpy
+pandas
+scikit-learn
+xgboost
+shap
+fastapi
+uvicorn[standard]
+pymongo
+pydantic-settings
+python-dotenv
+joblib
+httpx

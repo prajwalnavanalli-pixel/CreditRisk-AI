@@ -1,0 +1,63 @@
+
+services:
+  mongodb:
+    image: mongo:7
+    container_name: creditrisk_mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+    networks:
+      - creditrisk_net
+
+  api:
+    build:
+      context: .
+      dockerfile: deployment/Dockerfile.api
+    container_name: creditrisk_api
+    restart: unless-stopped
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    environment:
+      MONGO_URL: mongodb://mongodb:27017/
+      MONGO_DB_NAME: creditrisk_ai
+      JWT_SECRET: ${JWT_SECRET:?JWT_SECRET must be set in .env}
+      BOOTSTRAP_ADMIN_PASSWORD: ${BOOTSTRAP_ADMIN_PASSWORD:?BOOTSTRAP_ADMIN_PASSWORD must be set in .env}
+      BOOTSTRAP_ANALYST_PASSWORD: ${BOOTSTRAP_ANALYST_PASSWORD:?BOOTSTRAP_ANALYST_PASSWORD must be set in .env}
+      AUTH_REQUIRED: ${AUTH_REQUIRED:-true}
+      CORS_ORIGINS: http://localhost:3000,http://127.0.0.1:3000
+    ports:
+      - "8000:8000"
+    networks:
+      - creditrisk_net
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: deployment/Dockerfile.dashboard
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000}
+    container_name: creditrisk_dashboard
+    restart: unless-stopped
+    depends_on:
+      - api
+    environment:
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000}
+    ports:
+      - "3000:3000"
+    networks:
+      - creditrisk_net
+
+volumes:
+  mongo_data:
+
+networks:
+  creditrisk_net:
+    driver: bridge
